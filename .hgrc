@@ -1,0 +1,15 @@
+[ui]
+username = bitswithcer
+ignore.other = /home/tani/.hgignore
+
+[extensions]
+hgext.graphlog =
+hgext.pager =
+hgext.parentrevspec =
+hgext.transplant =
+hgext.notify =
+
+[pager]
+pager = lv
+ignore = version, update, push, pull
+

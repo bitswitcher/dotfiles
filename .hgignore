@@ -1,0 +1,17 @@
+syntax: glob
+*.o
+*.a
+*.d
+*.doc
+*.xls
+*.ppt
+*.html
+*.pdf
+*.lzh
+*.zip
+*.tgz
+*.tar.gz
+*.tar.bz2
+GPATH
+GRTAGS
+GTAGS

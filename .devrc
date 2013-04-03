@@ -1,0 +1,26 @@
+
+# . ${HOME}/.devmiscrc
+
+function devsetting {
+    cp ${HOME}/.gdbinit.${CHIP} ${HOME}/.gdbinit
+    TGTBLDDIR=${DEVBASE}/${REPO}/build/${F_TARGET}
+    alias cdexport='cd ${HOME}/export'
+    alias cdmk='cd ${TGTBLDDIR}'
+}
+
+function devsetting_kernel {
+    BCMLINUXDIR=${DEVBASE}/${REPO_L}/gpl/broadcom/linux
+    alias cdplat='cd ${DEVBASE}/${REPO_L}'
+    alias cdprebld='cd ${DEVBASE}/${REPO_R}'
+    alias cdmkp='cd ${DEVBASE}/${REPO_L}/build/${F_TARGET}'
+    alias cdmkl='cd ${DEVBASE}/${REPO_L}/build/${F_TARGET}/linux'
+
+    alias cdlinux='cd ${BCMLINUXDIR}/refsw'
+    alias cdkernel='cd ${BCMLINUXDIR}/stblinux'
+    alias cdkernelinc='cd ${BCMLINUXDIR}/stblinux/include'
+    alias cdkernelarch='cd ${BCMLINUXDIR}/stblinux/arch/mips'
+    alias cdrootfs='cd ${BCMLINUXDIR}/uclinux-rootfs'
+    alias cdrootfscfg='cd ${BCMLINUXDIR}/uclinux-rootfs/config'
+    alias cdbusybox='cd ${BCMLINUXDIR}/uclinux-rootfs/user/busybox'
+}
+
