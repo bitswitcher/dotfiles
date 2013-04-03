@@ -160,6 +160,22 @@ alias gcfg='git config -l'
 #source ${HOME}/.git-completion.sh   # occur syntax error(maybe csh is system default shell)
 export GIT_EDITOR=emacs
 
+## SVN
+alias shelp='svn help'    #
+alias sco='svn checkout'  # svn checkout [-r revision] [url]
+alias sad='svn add'       #
+alias sdel='svn delete'   #
+alias smov='svn move'     #
+alias smkd='svn mkdir'    #
+alias sst='svn stat'      #
+alias sstv='svn stat -v'  #
+alias sdif='svn diff'     #
+alias srev='svn revert'   # svn revert -R [directory]
+alias sup='svn update'    #
+# alias sci='svn commit'  # carefully
+alias slog='svn log'      #
+alias sblm='svn blame'    #
+
 MYWORK=work
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/local/bin
