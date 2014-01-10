@@ -1,7 +1,7 @@
 syntax enable
 
 set encoding=utf-8
-set fileencodings=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 set termencoding=utf-8
 set fileformat=unix
 
@@ -38,7 +38,7 @@ match OverLength /\%>80v.\+/
 "colorscheme koehler
 
 set t_Co=16
-"colorscheme molokai
+colorscheme molokai
 "colorscheme pyte
-colorscheme zenburn
+"colorscheme zenburn
 

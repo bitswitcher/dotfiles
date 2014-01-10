@@ -1,23 +1,3 @@
-
-shopt -s cdspell
-shopt -s dotglob
-shopt -s extglob
-shopt -u hostcomplete
-shopt -s no_empty_cmd_completion
-shopt -u sourcepath
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
-
-complete -o dirnames -u -X '!~*' cd
-complete -c man
-complete -c which
-complete -v unset
-
 # If you'd enable below setting, type 'bash' instead of 'source .bashrc'.
 # Because default shell is csh so syntax is defferent.
 # . /etc/bashrc
@@ -26,12 +6,15 @@ complete -v unset
 # fi
 
 # include local alias file
-. ${HOME}/.aliasrc
+# . ${HOME}/.bashrc2
+# . ${HOME}/.aliasrc
 # . ${HOME}/bin/bin/cdhist3.sh
 
 # export LANG=ja_JP.eucJP
 export LANG=ja_JP.UTF-8
 # export LANG=C
+
+export LC_MESSAGES=C
 
 # export TERM=teraterm
 # export TERM=xterm
@@ -42,8 +25,8 @@ export HISTSIZE=50000
 export HISTFILESIZE=50000
 export HISTCONTROL=ignoredups
 
-# export LESS=RMj20
-export LESS=frMj20
+# export LESS=RMj20x4
+export LESS=frMj20x4
 # export JLESSCHARSET=japanese
 # export JLESSCHARSET=japanese-euc
 export LESSCHARSET=utf-8 less
@@ -69,7 +52,7 @@ export EDITOR=emacs
 
 unset MAILCHECK
 
-eval `dircolors ~/.dir_colors -b`
+# eval `dircolors ~/.dir_colors -b`
 
 
 ## override function (predefined /etc/bash_completion)

@@ -1,0 +1,18 @@
+shopt -s cdspell
+shopt -s dotglob
+shopt -s extglob
+shopt -u hostcomplete
+shopt -s no_empty_cmd_completion
+shopt -u sourcepath
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+
+complete -o dirnames -u -X '!~*' cd
+complete -c man
+complete -c which
+complete -v unset

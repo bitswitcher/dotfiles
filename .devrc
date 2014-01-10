@@ -1,26 +1,59 @@
+WORKDIR=${HOME}/work
 
-# . ${HOME}/.devmiscrc
-
-function devsetting {
-    cp ${HOME}/.gdbinit.${CHIP} ${HOME}/.gdbinit
-    TGTBLDDIR=${DEVBASE}/${REPO}/build/${F_TARGET}
-    alias cdexport='cd ${HOME}/export'
-    alias cdmk='cd ${TGTBLDDIR}'
+function devarm9 {
+    TARGET=h1
+    CROSS_DIR=arm-2010q1
+    CROSS_TOOL=arm-none-linux-gnueabi
 }
 
-function devsetting_kernel {
-    BCMLINUXDIR=${DEVBASE}/${REPO_L}/gpl/broadcom/linux
-    alias cdplat='cd ${DEVBASE}/${REPO_L}'
-    alias cdprebld='cd ${DEVBASE}/${REPO_R}'
-    alias cdmkp='cd ${DEVBASE}/${REPO_L}/build/${F_TARGET}'
-    alias cdmkl='cd ${DEVBASE}/${REPO_L}/build/${F_TARGET}/linux'
+function devarm15 {
+    TARGET=m2
+    CROSS_DIR=gcc-linaro-arm-linux-gnueabihf-4.7-2013.02-01-20130221_linux
+    CROSS_TOOL=arm-linux-gnueabihf
+}
 
-    alias cdlinux='cd ${BCMLINUXDIR}/refsw'
-    alias cdkernel='cd ${BCMLINUXDIR}/stblinux'
-    alias cdkernelinc='cd ${BCMLINUXDIR}/stblinux/include'
-    alias cdkernelarch='cd ${BCMLINUXDIR}/stblinux/arch/mips'
-    alias cdrootfs='cd ${BCMLINUXDIR}/uclinux-rootfs'
-    alias cdrootfscfg='cd ${BCMLINUXDIR}/uclinux-rootfs/config'
-    alias cdbusybox='cd ${BCMLINUXDIR}/uclinux-rootfs/user/busybox'
+function devset {
+    DEVBASE=${WORKDIR}/prj
+    DOCROOT=${DEVBASE}/doc
+    SRCROOT=${DEVBASE}/src/${TARGET}
+    src_aliases
+    toolsetting
+    othersetting
+}
+
+function src_aliases {
+    alias cdroot='cd ${DEVBASE}'
+    alias cddoc='cd ${DOCROOT}'
+    alias cdsrc='cd ${SRCROOT}'
+    alias cdmk='cd ${SRCROOT}/build'
+    alias cdrel='cd ${SRCROOT}/release'
+    alias cdrfs='cd ${SRCROOT}/rootfs'
+
+    export GTAGSROOT="${SRCROOT}/program"
+}
+
+function toolsetting {
+    alias agcc='${CROSS_TOOL}-gcc'
+    alias agdb='${CROSS_TOOL}-gdb'
+    alias aar='${CROSS_TOOL}-ar'
+    alias aas='${CROSS_TOOL}-as'
+    alias ald='${CROSS_TOOL}-ld'
+    alias anm='${CROSS_TOOL}-nm'
+    alias aobjcp='${CROSS_TOOL}-objcopy'
+    alias aobjdp='${CROSS_TOOL}-objdump'
+    alias aelf='${CROSS_TOOL}-readelf'
+    alias astr='${CROSS_TOOL}-strings'
+}
+
+function othersetting {
+    alias syncprg='rsync -avr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' --inc
+lude='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRCROOT
+}'
+    alias syncprgdry='rsync -navr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' -
+-include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRC
+ROOT}'
+    alias syncprgdel='rsync -avr --delete  --include='*/' --include='makefile*' --include='*.mk' --include='lib_s
+ources' --include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/project/prog
+ram ${SRCROOT}'
 }
 
