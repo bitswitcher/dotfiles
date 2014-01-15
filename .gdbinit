@@ -5,6 +5,7 @@ set annotate 1
 set print pretty on
 set print static-members off
 set print frame-arguments all
+set print elements 1024
 #set charset ASCII
 
 handle SIG32 noprint pass nostop
