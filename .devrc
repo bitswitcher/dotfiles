@@ -43,6 +43,7 @@ function toolsetting {
     alias aobjdp='${CROSS_TOOL}-objdump'
     alias aelf='${CROSS_TOOL}-readelf'
     alias astr='${CROSS_TOOL}-strings'
+    alias aprof='${CROSS_TOOL}-gprof'
 }
 
 function othersetting {

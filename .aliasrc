@@ -133,6 +133,7 @@ glog_defopt="--date=iso --decorate=full"
 alias glog='git log ${glog_defopt}'
 alias glogs='git log --stat ${glog_defopt}'
 alias glogn='git log --name-only ${glog_defopt}'
+alias glogone='git log ${glog_defopt} --oneline'
 alias glogg='git log --graph ${glog_defopt}'
 alias glogp='git log -p --date=iso'
 alias glogown='git log --date=iso --author=k-tani'

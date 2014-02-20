@@ -3,6 +3,7 @@
 	pager = less -x2
 	excludesfile = ~tani/.gitignore
 	filemode = true
+	attributesfile = ~tani/.gitattributes
 [user]
 	name = bitswitcher
 	email = koichi.red@gmail.com
