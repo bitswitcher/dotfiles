@@ -20,6 +20,7 @@ alias s='source ${HOME}/.bashrc; source ${HOME}/.bashrc2; source ${HOME}/.aliasr
 alias p='pwd'
 alias g='grep'
 alias d='date'
+alias sudo='sudo '
 alias tree='LC_CTYPE=C tree'
 alias t='tree -a'
 alias h='history'  # e.g.) h 10 -> lists only the last 10 lines
@@ -31,7 +32,7 @@ alias rm='rm -f'
 alias as='alias'
 alias pc='patch'
 alias pcd='patch --dry-run'
-alias diff='diff -rc'
+alias diff='diff -rc --strip-trailing-cr'
 alias mkdir='mkdir -p'
 alias df='df -h'
 alias cls='clear'
@@ -82,21 +83,17 @@ alias mklog='unsgr; make > mk.log 2>&1; setgr'
 alias mktag='gtags -iv'
 alias ifnat='ifconfig eth1 down; ifconfig eth0 up; route add default gw 192.168.87.1 dev eth0; route add -net 192.168.87.0/24 gw 192.168.87.1 dev eth0'
 alias ifbr='ifconfig eth0 down; ifconfig eth1 up;'
+alias vncs='vncserver :2 -geometry 1024x768 -depth 24'
+alias vnce='killall Xvnc4'
 
 ## git
 alias gclo='git clone'
 alias gpul='git pull -v'            # git fet origin -> git merge  origin/[branch]
 alias gpulr='git pull -v --rebase'  # git fet origin -> git rebase origin/[branch]
 #alias gpus='git push origin master'
-#alias gpus='git push origin switch_refsw_to_7.0'
+#alias gpus='git push origin develop'
 alias gco='git checkout'
 alias gcob='git checkout -b'
-# alias gcom='git checkout master'
-# alias gco70='git checkout switch_refsw_to_7.0'
-# alias gcoboi='git checkout -b oi origin/oi'
-# alias gcooi='git checkout oi'
-# alias gcobpl='git checkout -b plala origin/plala'
-# alias gcopl='git checkout plala'
 alias gad='git add'
 alias gadu='git add -u' # [useful] add modified files only, new (or not track) files are not added
 alias gadf='git add -f'
@@ -166,9 +163,8 @@ alias ggc='git gc --prune=now'
 alias gfsck='git fsck'
 alias gcfg='git config -l'
 #source ${HOME}/.git-completion.sh   # occur syntax error(maybe csh is system default shell)
-export GIT_EDITOR=emacs
 
-## SVN
+## subversion
 alias shelp='svn help'    #
 alias sco='svn checkout'  # svn checkout [-r revision] [url]
 alias sad='svn add'       #
@@ -184,24 +180,3 @@ alias sup='svn update'    #
 alias slog='svn log'      #
 alias sblm='svn blame'    #
 
-### PS1 ###
-export PS1="[\u@\W] $ "
-#export PS1="[\h@\u] $ "
-
-### load devrc
-. ${HOME}/.devrc
-
-### call setting functions
-devset
-
-DEV_PATH=/usr/local/${CROSS_DIR}/bin
-SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
-
-### PATH ###
-export PATH=${DEV_PATH}:${LOCAL_PATH}:${SYS_PATH}
-export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:${HOME}/local/man
-export INFOPATH=/usr/local/share/info:/usr/local/info:/usr/share/info:${HOME}/local/share/info:${HOME}/info
-
-### Global ###
-#export GTAGSROOT="${DEVBASE}/${REPO}"

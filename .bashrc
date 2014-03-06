@@ -6,8 +6,9 @@
 # fi
 
 # include local alias file
-# . ${HOME}/.bashrc2
-# . ${HOME}/.aliasrc
+. ${HOME}/.bashrc2
+. ${HOME}/.aliasrc
+. ${HOME}/.devrc
 # . ${HOME}/bin/bin/cdhist3.sh
 
 # export LANG=ja_JP.eucJP
@@ -42,18 +43,29 @@ export MANPAGER=lv
 export GREP_OPTIONS="-n -I -P --color=always"   # --perl-regexp
 # export GREP_OPTIONS="-n -I -E"
 
-export PERL_BADLANG=0
-# export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
-
-# export CVSROOT=/home/mbg/g5/cvs
+# export CVSROOT=/home/xxx/cvs
 
 # export EDITOR=vim
 export EDITOR=emacs
+export GIT_EDITOR=emacs
 
 unset MAILCHECK
 
-# eval `dircolors ~/.dir_colors -b`
+export PS1="[\u@\W] $ "
+#export PS1="[\h@\u] $ "
 
+SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
+LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
+
+### PATH ###
+export PATH=${DEV_PATH}:${LOCAL_PATH}:${SYS_PATH}
+export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:${HOME}/local/man
+export INFOPATH=/usr/local/share/info:/usr/local/info:/usr/share/info:${HOME}/local/share/info:${HOME}/info
+
+export PERL_BADLANG=0
+# export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
+
+# eval `dircolors ~/.dir_colors -b`
 
 ## override function (predefined /etc/bash_completion)
 ## this define for Ubuntu only

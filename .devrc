@@ -16,6 +16,7 @@ function devset {
     DEVBASE=${WORKDIR}/prj
     DOCROOT=${DEVBASE}/doc
     SRCROOT=${DEVBASE}/src/${TARGET}
+    SYNCPRGDIR=${SRCROOT}/program
     src_aliases
     toolsetting
     othersetting
@@ -38,6 +39,7 @@ function toolsetting {
     alias aar='${CROSS_TOOL}-ar'
     alias aas='${CROSS_TOOL}-as'
     alias ald='${CROSS_TOOL}-ld'
+    alias aldd='${CROSS_TOOL}-ldd'
     alias anm='${CROSS_TOOL}-nm'
     alias aobjcp='${CROSS_TOOL}-objcopy'
     alias aobjdp='${CROSS_TOOL}-objdump'
@@ -46,15 +48,25 @@ function toolsetting {
     alias aprof='${CROSS_TOOL}-gprof'
 }
 
+# function othersetting {
+#     alias syncprg='rsync -avr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' --inc
+# lude='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRCROOT
+# }'
+#     alias syncprgdry='rsync -navr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' -
+# -include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRC
+# ROOT}'
+#     alias syncprgdel='rsync -avr --delete  --include='*/' --include='makefile*' --include='*.mk' --include='lib_s
+# ources' --include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/project/prog
+# ram ${SRCROOT}'
+# }
+
 function othersetting {
-    alias syncprg='rsync -avr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' --inc
-lude='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRCROOT
-}'
-    alias syncprgdry='rsync -navr --include='*/' --include='makefile*' --include='*.mk' --include='lib_sources' -
--include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/program ${SRC
-ROOT}'
-    alias syncprgdel='rsync -avr --delete  --include='*/' --include='makefile*' --include='*.mk' --include='lib_s
-ources' --include='*.[ch]' --include='*.cpp' --include='*.so' --exclude='*' ${SHAREDIR}/project/prog
-ram ${SRCROOT}'
+    alias syncprg='rsync -avr ${SYNCPRGDIR} ${TGTROOT}'
+    alias syncprgdry='rsync -navr ${SYNCPRGDIR} ${TGTROOT}'
+    alias syncprgdel='rsync -avr --delete ${SYNCPRGDIR} ${TGTROOT}'
 }
 
+### call setting functions
+devset
+
+DEV_PATH=/usr/local/${CROSS_DIR}/bin
