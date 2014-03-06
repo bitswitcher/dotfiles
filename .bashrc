@@ -6,10 +6,17 @@
 # fi
 
 # include local alias file
-. ${HOME}/.bashrc2
-. ${HOME}/.aliasrc
-. ${HOME}/.devrc
-# . ${HOME}/bin/bin/cdhist3.sh
+if [ -f ${HOME}/.bashrc2 ]; then
+    . ${HOME}/.bashrc2
+fi
+
+if [ -f ${HOME}/.aliasrc ]; then
+    . ${HOME}/.aliasrc
+fi
+
+if [ -f ${HOME}/.devrc ]; then
+    . ${HOME}/.devrc
+fi
 
 # export LANG=ja_JP.eucJP
 export LANG=ja_JP.UTF-8
