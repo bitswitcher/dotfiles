@@ -45,7 +45,8 @@ function toolsetting {
     alias aobjdp='${CROSS_TOOL}-objdump'
     alias aelf='${CROSS_TOOL}-readelf'
     alias astr='${CROSS_TOOL}-strings'
-    alias aprof='${CROSS_TOOL}-gprof'
+    alias aprof='${CROSS_TOOL}-gprof'    # CFLAGS += -pg / LDFLAGS += -pg
+    alias agcov='${CROSS_TOOL}-gcov'     # CFLAGS += -fprofile-arcs -ftest-coverage / LDFLAGS += -fprofile-arcs
 }
 
 # function othersetting {
@@ -61,6 +62,7 @@ function toolsetting {
 # }
 
 function othersetting {
+    alias teltgt='telnet 192.168.xxx.xxx'
     alias syncprg='rsync -avr ${SYNCPRGDIR} ${TGTROOT}'
     alias syncprgdry='rsync -navr ${SYNCPRGDIR} ${TGTROOT}'
     alias syncprgdel='rsync -avr --delete ${SYNCPRGDIR} ${TGTROOT}'
