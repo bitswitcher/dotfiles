@@ -8,12 +8,12 @@ function cdp {
 alias cd='cdp'
 alias ls='ls -F --color=always'
 alias la='ls -aF --color=always'
-alias ll='ls -lF --color=always'
-alias lla='ls -alF --color=always'
+alias ll='ls -lF --time-style=long-iso --color=always'
+alias lla='ls -alF --time-style=long-iso --color=always'
 #alias ls='ls -F --color=none'
 #alias la='ls -aF --color=none'
-#alias ll='ls -lF --color=none'
-#alias lla='ls -alF --color=none'
+#alias ll='ls -lF --time-style=long-iso --color=none'
+#alias lla='ls -alF --time-style=long-iso --color=none'
 alias lsmd='ls --color=always *.md'
 
 alias s='source ${HOME}/.bashrc; source ${HOME}/.bashrc2; source ${HOME}/.aliasrc'
@@ -87,6 +87,7 @@ alias vncs='vncserver :2 -geometry 1024x768 -depth 24'
 alias vnce='killall Xvnc4'
 
 ## git
+alias ghelp='git help'
 alias gclo='git clone'
 alias gpul='git pull -v'            # git fet origin -> git merge  origin/[branch]
 alias gpulr='git pull -v --rebase'  # git fet origin -> git rebase origin/[branch]

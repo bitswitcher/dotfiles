@@ -9,7 +9,8 @@ function share_history {
     history -c
     history -r
 }
-PROMPT_COMMAND='share_history'
+# enable if share history each prompt
+# PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 complete -o dirnames -u -X '!~*' cd
