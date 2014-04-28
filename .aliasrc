@@ -16,7 +16,7 @@ alias lla='ls -alF --time-style=long-iso --color=always'
 #alias lla='ls -alF --time-style=long-iso --color=none'
 alias lsmd='ls --color=always *.md'
 
-alias s='source ${HOME}/.bashrc; source ${HOME}/.bashrc2; source ${HOME}/.aliasrc'
+alias s='source ${HOME}/.bashrc'
 alias p='pwd'
 alias g='grep'
 alias zg='zgrep'
@@ -102,6 +102,7 @@ alias gadu='git add -u' # [useful] add modified files only, new (or not track) f
 alias gadf='git add -f'
 alias grst='git reset'
 alias gci='git commit'
+alias gcia='git commit --amend -C HEAD'
 alias gbr='git branch'
 alias gbra='git branch -a'
 alias gbrd='git branch -d'
@@ -144,6 +145,7 @@ alias glogown='git log --date=iso --author=k-tani'
 # --before/--after : limit display commit by date
 #                     <e.g.> --after="2012-1-1" --before="2012-3-30"
 alias gshow='git show'
+alias grlog='git reflog'
 ## git show usefull pattern
 # gshow [commit hash] / gshow [commit hash] [directory path]
 # gshow :/[regexp pattern]
