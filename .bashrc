@@ -20,12 +20,12 @@ fi
 
 GITHUB_DIR=${HOME}/prj/github
 
-if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-prompt.sh ]; then
-    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-prompt.sh
+if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh ]; then
+    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh
 fi
 
-if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-completion.bash ]; then
-    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-completion.bash
+if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-completion.bash ]; then
+    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-completion.bash
 fi
 
 # export LANG=ja_JP.eucJP
@@ -64,14 +64,26 @@ export GIT_EDITOR=emacs
 
 unset MAILCHECK
 
+BLACK="\[\033[0;30m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[0;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+MAGENTA="\[\033[0;35m\]"
+CYAN="\[\033[0;36m\]"
+WHITE="\[\033[0;37m\]"
+ESCOFF="\[\033[0m\]"
+
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="[\u@\W$(parse_git_branch)] $ "
+export PROMPT_COMMAND='PS1="[\u@${CYAN}\W${MAGENTA}$(parse_git_branch)${ESCOFF}] $ "'
+#export PS1="[\u@\W$(parse_git_branch)] $ "
 #export PS1="[\h@\u] $ "
 
 #export GREP_OPTIONS="-n -I -E --color=always"  # --extended-regexp
