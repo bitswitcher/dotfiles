@@ -18,6 +18,16 @@ if [ -f ${HOME}/.devrc ]; then
     . ${HOME}/.devrc
 fi
 
+GITHUB_DIR=${HOME}/prj/github
+
+if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-prompt.sh ]; then
+    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-prompt.sh
+fi
+
+if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-completion.bash ]; then
+    . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/.git-completion.bash
+fi
+
 # export LANG=ja_JP.eucJP
 export LANG=ja_JP.UTF-8
 # export LANG=C
@@ -46,10 +56,6 @@ export PAGER=less
 
 export MANPAGER=lv
 
-#export GREP_OPTIONS="-n -I -E --color=always"  # --extended-regexp
-export GREP_OPTIONS="-n -I -P --color=always"   # --perl-regexp
-# export GREP_OPTIONS="-n -I -E"
-
 # export CVSROOT=/home/xxx/cvs
 
 # export EDITOR=vim
@@ -58,8 +64,19 @@ export GIT_EDITOR=emacs
 
 unset MAILCHECK
 
-export PS1="[\u@\W] $ "
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1="[\u@\W$(parse_git_branch)] $ "
 #export PS1="[\h@\u] $ "
+
+#export GREP_OPTIONS="-n -I -E --color=always"  # --extended-regexp
+export GREP_OPTIONS="-n -I -P --color=always"   # --perl-regexp
+# export GREP_OPTIONS="-n -I -E"
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
