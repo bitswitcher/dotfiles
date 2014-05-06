@@ -1,10 +1,3 @@
-# If you'd enable below setting, type 'bash' instead of 'source .bashrc'.
-# Because default shell is csh so syntax is defferent.
-# . /etc/bashrc
-# if [ -f ${HOME}/bin/etc/bash_completion ]; then
-#     . ${HOME}/bin/etc/bash_completion
-# fi
-
 # include local alias file
 if [ -f ${HOME}/.bashrc2 ]; then
     . ${HOME}/.bashrc2
@@ -82,13 +75,13 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PROMPT_COMMAND='PS1="[\u@${CYAN}\W${MAGENTA}$(parse_git_branch)${ESCOFF}] $ "'
+export PROMPT_COMMAND='PS1="[\u@\W${MAGENTA}$(parse_git_branch)${ESCOFF}] $ "'
 #export PS1="[\u@\W$(parse_git_branch)] $ "
 #export PS1="[\h@\u] $ "
 
-#export GREP_OPTIONS="-n -I -E --color=always"  # --extended-regexp
-export GREP_OPTIONS="-n -I -P --color=always"   # --perl-regexp
-# export GREP_OPTIONS="-n -I -E"
+#export GREP_OPTIONS="-n -I -E --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"  # --extended-regexp
+export GREP_OPTIONS="-n -I -P --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"   # --perl-regexp
+# export GREP_OPTIONS="-n -I -E --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
