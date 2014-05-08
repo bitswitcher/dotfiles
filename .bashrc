@@ -71,13 +71,50 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
 
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+function parse_git_branch () {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-export PROMPT_COMMAND='PS1="[\u@\W${MAGENTA}$(parse_git_branch)${ESCOFF}] $ "'
-#export PS1="[\u@\W$(parse_git_branch)] $ "
-#export PS1="[\h@\u] $ "
+function parse_git_tag () {
+  git describe --tags 2> /dev/null
+}
+
+function if_modified () {
+  unsgr; git status -uall 2> /dev/null | grep -E "(modified|Untracked)" > /dev/null 2>&1
+}
+
+function if_pushed () {
+  unsgr; git log origin/$1..$1 2> /dev/null | grep -E "commit" > /dev/null 2>&1
+}
+
+function parse_git_branch_or_tag() {
+  local BRANCH="$(parse_git_branch)"
+  if [ "$BRANCH" = "" ]; then
+    return 0;
+  fi
+
+  local OUT="($BRANCH)"
+  if [ "$OUT" == " ((no branch))" ]; then
+    OUT="($(parse_git_tag))";
+  fi
+
+  if_modified
+  if [ $? -eq 0 ] ; then
+    local MOD_MARK="*"
+    OUT=$OUT$MOD_MARK
+  fi
+
+  if_pushed $BRANCH
+  if [ $? -eq 0 ] ; then
+    local NON_PUSH_MARK="+"
+    OUT=$OUT$NON_PUSH_MARK
+  fi
+  echo $OUT
+}
+
+export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $ "'
+#export PS1="\u@\W $ "
+#export PS1="\h@\u $ "
 
 #export GREP_OPTIONS="-n -I -E --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"  # --extended-regexp
 export GREP_OPTIONS="-n -I -P --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"   # --perl-regexp
