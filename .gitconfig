@@ -1,9 +1,9 @@
 [core]
 	editor = emacs
 	pager = less -x2
-	excludesfile = ~tani/.gitignore
+	excludesfile = ~bitswitcher/.gitignore
 	filemode = true
-	attributesfile = ~tani/.gitattributes
+	attributesfile = ~bitswitcher/.gitattributes
 [user]
 	name = bitswitcher
 	email = koichi.red@gmail.com

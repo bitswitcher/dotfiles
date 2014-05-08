@@ -37,8 +37,8 @@ alias rm='rm -f'
 alias as='alias'
 alias pc='patch'
 alias pcd='patch --dry-run'
-#alias diff='diff -rc --strip-trailing-cr'
-alias diff='colordiff -rc --strip-trailing-cr'
+#alias diff='diff -ru --strip-trailing-cr'
+alias diff='colordiff -ru --strip-trailing-cr'
 alias mkdir='mkdir -p'
 alias df='df -h'
 alias j='jobs -l'
@@ -153,10 +153,10 @@ alias glogown='git log --date=iso --author=k-tani'
 # --before/--after : limit display commit by date
 #                     <e.g.> --after="2012-1-1" --before="2012-3-30"
 alias gshow='git show'
-alias grlog='git reflog'
 ## git show usefull pattern
 # gshow [commit hash] / gshow [commit hash] [directory path]
 # gshow :/[regexp pattern]
+alias grlog='git reflog'
 alias gwh='git whatchanged'
 alias gblm='git blame'
 alias gtag='git tag -n'
@@ -193,3 +193,4 @@ alias sup='svn update'    #
 alias slog='svn log'      #
 alias sblm='svn blame'    #
 
+alias cdghub='cd ${GITHUB_DIR}'
