@@ -1,5 +1,6 @@
 .mode column
 .headers on
 .explain on
-.width 5 50
 .nullvalue NULL
+.width 5 5 5 5 5
+
