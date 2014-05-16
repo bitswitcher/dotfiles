@@ -2,5 +2,5 @@
 .headers on
 .explain on
 .nullvalue NULL
-.width 5 5 5 5 5
+.width 8 8 8 8 8
 
