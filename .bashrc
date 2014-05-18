@@ -117,7 +117,7 @@ export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $
 #export PS1="\h@\u $ "
 
 #export GREP_OPTIONS="-n -I -E --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"  # --extended-regexp
-export GREP_OPTIONS="-n -I -P --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"   # --perl-regexp
+#export GREP_OPTIONS="-n -I -P --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"   # --perl-regexp
 # export GREP_OPTIONS="-n -I -E --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
