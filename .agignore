@@ -48,6 +48,7 @@ GSYMS
 !.gitignore
 *.log
 *~
+*.swp
 
 # local
 *.map
