@@ -83,6 +83,10 @@ function if_modified () {
   unsgr; git status -uall 2> /dev/null | grep -E "(modified|Untracked)" > /dev/null 2>&1
 }
 
+function if_stashed {
+  unsgr; git stash list 2> /dev/null | grep -E "stash" > /dev/null 2>&1
+}
+
 function if_pushed () {
   unsgr; git log origin/$1..$1 2> /dev/null | grep -E "commit" > /dev/null 2>&1
 }
@@ -102,6 +106,12 @@ function parse_git_branch_or_tag() {
   if [ $? -eq 0 ] ; then
     local MOD_MARK="*"
     OUT=$OUT$MOD_MARK
+  fi
+
+  if_stashed
+  if [ $? -eq 0 ] ; then
+    local STA_MARK="="
+    OUT=$OUT$STA_MARK
   fi
 
   if_pushed $BRANCH
