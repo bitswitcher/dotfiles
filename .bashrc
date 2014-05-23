@@ -135,8 +135,8 @@ LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
 
 ### PATH ###
 export PATH=${DEV_PATH}:${LOCAL_PATH}:${SYS_PATH}
-export MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:${HOME}/local/man
-export INFOPATH=/usr/local/share/info:/usr/local/info:/usr/share/info:${HOME}/local/share/info:${HOME}/info
+export MANPATH=${HOME}/local/man:${HOME}/local/share/man:/usr/share/man:/usr/local/man:/usr/local/share/man
+export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/info:/usr/local/info:/usr/share/info
 
 export PERL_BADLANG=0
 # export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
