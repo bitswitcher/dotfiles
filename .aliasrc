@@ -27,6 +27,8 @@ alias g='ag'
 alias zg='zgrep'
 alias d='date'
 alias sudo='sudo '
+alias yum='sudo yum'
+alias apt-get='sudo apt-get'
 alias tree='LC_CTYPE=C tree'
 alias t='tree -a'
 alias h='history'  # e.g.) h 10 -> lists only the last 10 lines

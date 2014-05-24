@@ -134,7 +134,7 @@ SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/local/bin:${HOME}/.cabal/bin
 
 ### PATH ###
-export PATH=${DEV_PATH}:${LOCAL_PATH}:${SYS_PATH}
+export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
 export MANPATH=${HOME}/local/man:${HOME}/local/share/man:/usr/share/man:/usr/local/man:/usr/local/share/man
 export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/info:/usr/local/info:/usr/share/info
 
