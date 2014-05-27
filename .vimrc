@@ -80,7 +80,7 @@ NeoBundleCheck
 " GitHubリポジトリにあるプラグインを利用する
 " --> NeoBundle 'USER/REPOSITORY-NAME'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'davidoc/taskpaper.vim'
