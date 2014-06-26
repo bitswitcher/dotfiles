@@ -38,3 +38,5 @@
 	st = status
 	br = branch -a
 	ci = commit
+[ghq]
+	root = ~/src
