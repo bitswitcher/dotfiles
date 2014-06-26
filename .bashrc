@@ -11,7 +11,7 @@ if [ -f ${HOME}/.devrc ]; then
     . ${HOME}/.devrc
 fi
 
-GITHUB_DIR=${HOME}/prj/github
+GITHUB_DIR=${HOME}/src/github.com
 
 if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh ]; then
     . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh
