@@ -11,6 +11,10 @@ if [ -f ${HOME}/.devrc ]; then
     . ${HOME}/.devrc
 fi
 
+if [ -f ${HOME}/.bashrc2 ]; then
+    . ${HOME}/.bashrc2
+fi
+
 GITHUB_DIR=${HOME}/src/github.com
 
 if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh ]; then
@@ -27,10 +31,10 @@ export LANG=ja_JP.UTF-8
 
 export LC_MESSAGES=C
 
+# export TERM=vt100
 # export TERM=teraterm
 # export TERM=xterm
 export TERM=xterm-256color
-# export TERM=vt100
 
 export HISTSIZE=50000
 export HISTFILESIZE=50000
@@ -51,9 +55,8 @@ export MANPAGER=lv
 
 # export CVSROOT=/home/xxx/cvs
 
-# export EDITOR=vim
-export EDITOR=emacs
-export GIT_EDITOR=emacs
+export EDITOR=vim
+export GIT_EDITOR=vim
 
 unset MAILCHECK
 
@@ -125,10 +128,6 @@ function parse_git_branch_or_tag() {
 export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $ "'
 #export PS1="\u@\W $ "
 #export PS1="\h@\u $ "
-
-#export GREP_OPTIONS="-n -I -E --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"  # --extended-regexp
-#export GREP_OPTIONS="-n -I -P --color=always --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"   # --perl-regexp
-# export GREP_OPTIONS="-n -I -E --exclude-dir=.svn --exclude=*.svn-base --exclude-dir=.git"
 
 export GOROOT=${HOME}/local/go
 export GOPATH=${HOME}
