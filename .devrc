@@ -29,8 +29,6 @@ function src_aliases {
     alias cdmk='cd ${SRCROOT}/build'
     alias cdrel='cd ${SRCROOT}/release'
     alias cdrfs='cd ${SRCROOT}/rootfs'
-
-    export GTAGSROOT="${SRCROOT}/program"
 }
 
 function toolsetting {
@@ -66,6 +64,7 @@ function othersetting {
     alias syncprg='rsync -avr ${SYNCPRGDIR} ${TGTROOT}'
     alias syncprgdry='rsync -navr ${SYNCPRGDIR} ${TGTROOT}'
     alias syncprgdel='rsync -avr --delete ${SYNCPRGDIR} ${TGTROOT}'
+    export GTAGSROOT="${SRCROOT}/program"
 }
 
 ### call setting functions
