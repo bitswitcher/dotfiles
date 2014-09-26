@@ -1,8 +1,15 @@
-# include local alias file
-if [ -f ${HOME}/.bashrc2 ]; then
-    . ${HOME}/.bashrc2
-fi
+# color setting
+BLACK="\[\033[0;30m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[0;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+MAGENTA="\[\033[0;35m\]"
+CYAN="\[\033[0;36m\]"
+WHITE="\[\033[0;37m\]"
+ESCOFF="\[\033[0m\]"
 
+# include local alias file
 if [ -f ${HOME}/.aliasrc ]; then
     . ${HOME}/.aliasrc
 fi
@@ -34,7 +41,7 @@ export LC_MESSAGES=C
 # export TERM=vt100
 # export TERM=teraterm
 # export TERM=xterm
-export TERM=xterm-256color
+export TERM=xterm-256color # if term-256color not found in termcap, can type 'infocmp -C xterm-256color >> ~/.termcap'
 
 export HISTSIZE=50000
 export HISTFILESIZE=50000
@@ -49,30 +56,19 @@ export LESSCHARSET=utf-8 less
 export LV="-c +i -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 
 export PAGER=less
-# export PAGER=lv
-
 export MANPAGER=lv
 
 # export CVSROOT=/home/xxx/cvs
 
 export EDITOR=vim
 export GIT_EDITOR=vim
-
-unset MAILCHECK
-
-BLACK="\[\033[0;30m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-YELLOW="\[\033[0;33m\]"
-BLUE="\[\033[0;34m\]"
-MAGENTA="\[\033[0;35m\]"
-CYAN="\[\033[0;36m\]"
-WHITE="\[\033[0;37m\]"
-ESCOFF="\[\033[0m\]"
+export SVN_EDITOR=vim
 
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
+
+unset MAILCHECK
 
 function parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
