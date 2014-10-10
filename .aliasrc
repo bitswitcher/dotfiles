@@ -169,17 +169,31 @@ alias smov='svn move'
 alias smkd='svn mkdir'
 alias sst='svn stat'
 alias sstv='svn stat -v | less'
-alias sdif='svn diff | lv'
 alias srev='svn revert -R'   # svn revert -R [directory]
 alias sup='svn update'
 # alias sci='svn commit'  # carefully
 alias sinf='svn info'
-alias slog='svn log -r HEAD:0 | less'
-alias slogn='svn log -v -r HEAD:0 | less'
-alias slogp='svn log --diff -r HEAD:0 | less'
-alias slogh='svn log -r HEAD:BASE | less'
-alias slogone='svn log -r HEAD:0 -q | less'
-alias sblm='svn blame | lv'
+function sdif {
+    svn diff $1 | lv
+}
+function slog {
+    svn log -r HEAD:0 $1 | less
+}
+function slogn {
+    svn log -v -r HEAD:0 $1 | less
+}
+function slogp {
+    svn log --diff -r HEAD:0 $1 | less
+}
+function slogh {
+    svn log -r HEAD:BASE $1 | less
+}
+function slogone {
+    svn log -r HEAD:0 -q $1 | less
+}
+function sblm {
+    svn blame $1 | lv
+}
 alias sreloc='svn switch --relocate'  # srelec svn://[old addr]/xxx svn://[new addr]/xxx
 
 if [ `uname -o` = "Cygwin" ]; then
