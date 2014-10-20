@@ -32,11 +32,17 @@ alias sudo='sudo '
 alias yum='sudo yum'
 alias apt-get='sudo apt-get'
 alias tree='LC_CTYPE=C tree'
-alias t='tree -a'
 alias h='history'  # e.g.) h 10 -> lists only the last 10 lines
-#alias tp='tree -aps'
-alias tp='tree -apsC'
-alias td='tree -d'
+function t {
+    tree -a $1 | less
+}
+function tp {
+    tree -apsC $1 | less
+    # tree -aps $1 | less
+}
+function td {
+    tree -d $1 | less
+}
 alias cp='cp -a'
 alias rm='rm -f'
 alias as='alias'
