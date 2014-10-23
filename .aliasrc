@@ -74,6 +74,7 @@ alias nkfck='nkf --guess'   # check format
 alias nkflf='nkf -Lu'       # nkflf orgfile > newfile
 alias nkfutf8='nkf -w'      # nkfutf8 orgfile > newfile
 alias nkfeuc='nkf -e'       # nkfeuc orgfile > newfile
+alias nkfsj='nkf -s'        # nkfsj orgfile > newfile
 alias unpath='export PATH=${LOCAL_PATH}:${SYS_PATH}'
 #alias setgr='export GREP_OPTIONS="-n -I -E -P --color=always"'
 alias setgr='export GREP_OPTIONS="-n -I -P --color=always"'
