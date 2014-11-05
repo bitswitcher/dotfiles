@@ -135,7 +135,7 @@ alias glogn='git log --name-only ${glog_defopt}'
 alias glogone='git log ${glog_defopt} --oneline'
 alias glogg='git log --graph ${glog_defopt}'
 alias glogp='git log -p --date=iso'
-alias glogown='git log --date=iso --author=k-tani'
+alias glogown='git log --date=iso --author=bitswitcher'
 ## other usefull log options
 # --grep=xxx       : search word from commit message
 # --all-match=xxx  : search word from author and commit message
