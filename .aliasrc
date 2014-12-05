@@ -115,6 +115,7 @@ alias gmg='git merge'
 alias gmgs='git merge --squash'
 alias greb='git rebase'
 alias greba='git rebase --abort'
+alias grebi='git rebase -i'        # e.g.) git rebase -i HEAD~2
 alias gst='git status | less'
 alias gstuno='git status -uno | less'
 alias gstall='git status  --ignored | less'
