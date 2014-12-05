@@ -104,6 +104,7 @@ alias gcp='git cherry-pick'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbd='git branch -d'
+alias gbm='git branch -m'
 alias gsbr='git show-branch'
 alias gremv='git remote -v'
 alias grema='git remote add'        # git remote add [shortname] [url]
