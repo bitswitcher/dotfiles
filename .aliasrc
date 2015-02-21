@@ -187,19 +187,39 @@ function sdif {
     svn diff $1 | lv
 }
 function slog {
-    svn log -r HEAD:0 $1 | less
+    if [ $# -eq 0 ]; then
+        svn log -r HEAD:0 | less
+    else
+        svn log -r $1 | less
+    fi
 }
 function slogn {
-    svn log -v -r HEAD:0 $1 | less
+    if [ $# -eq 0 ]; then
+        svn log -v -r HEAD:0 | less
+    else
+        svn log -v -r $1 | less
+    fi
 }
 function slogp {
-    svn log --diff -r HEAD:0 $1 | less
+    if [ $# -eq 0 ]; then
+        svn log --diff -r HEAD:0 | less
+    else
+        svn log --diff -r $1 | less
+    fi
 }
 function slogh {
-    svn log -r HEAD:BASE $1 | less
+    if [ $# -eq 0 ]; then
+        svn log -r HEAD:BASE | less
+    else
+        svn log -r $1 | less
+    fi
 }
 function slogone {
-    svn log -r HEAD:0 -q $1 | less
+    if [ $# -eq 0 ]; then
+        svn log -r HEAD:0 -q | less
+    else
+        svn log -r $1 -q | less
+    fi
 }
 function sblm {
     svn blame $1 | lv
