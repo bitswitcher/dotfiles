@@ -189,36 +189,48 @@ function sdif {
 function slog {
     if [ $# -eq 0 ]; then
         svn log -r HEAD:0 | less
+    elif [ $# -eq 1 ]; then
+        svn log -r HEAD:0 $1 | less
+    elif [ $# -eq 2 ]; then
+        svn log -r $1 $2 | less
     else
-        svn log -r $1 | less
+        echo "[usage] slog <rev> <path>"
     fi
 }
 function slogn {
     if [ $# -eq 0 ]; then
         svn log -v -r HEAD:0 | less
+    elif [ $# -eq 1 ]; then
+        svn log -v -r HEAD:0 $1 | less
+    elif [ $# -eq 2 ]; then
+        svn log -v -r $1 $2 | less
     else
-        svn log -v -r $1 | less
+        echo "[usage] slogn <rev> <path>"
     fi
 }
 function slogp {
     if [ $# -eq 0 ]; then
         svn log --diff -r HEAD:0 | less
+    elif [ $# -eq 1 ]; then
+        svn log --diff -r HEAD:0 $1 | less
+    elif [ $# -eq 2 ]; then
+        svn log --diff -r $1 $2 | less
     else
-        svn log --diff -r $1 | less
+        echo "[usage] slogp <rev> <path>"
     fi
 }
 function slogh {
-    if [ $# -eq 0 ]; then
-        svn log -r HEAD:BASE | less
-    else
-        svn log -r $1 | less
-    fi
+    svn log -r HEAD:BASE | less
 }
 function slogone {
     if [ $# -eq 0 ]; then
         svn log -r HEAD:0 -q | less
+    elif [ $# -eq 1 ]; then
+        svn log -r HEAD:0 $1 -q | less
+    elif [ $# -eq 2 ]; then
+        svn log -r $1 $2 -q | less
     else
-        svn log -r $1 -q | less
+        echo "[usage] slogone <rev> <path>"
     fi
 }
 function sblm {
