@@ -4,6 +4,8 @@
 	excludesfile = ~bitswitcher/.gitignore
 	filemode = true
 	attributesfile = ~bitswitcher/.gitattributes
+	preloadindex = true
+	fscache = true
 [user]
 	name = bitswitcher
 	email = koichi.red@gmail.com
