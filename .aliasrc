@@ -187,6 +187,9 @@ alias sinf='svn info'
 function sdif {
     svn diff $1 | lv
 }
+function sdifn {
+    svn diff --summarize $1 | lv
+}
 function slog {
     if [ $# -eq 0 ]; then
         svn log -r HEAD:0 | less
