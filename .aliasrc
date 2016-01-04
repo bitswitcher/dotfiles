@@ -114,6 +114,7 @@ alias gremd='git remote rm'         # git remote rm [shortname]
 alias gremc='git remote rename'     # git remote rename [old-shortname] [new-shortname]
 alias grems='git remote show'       # git remote show [shortname]
 alias gremurl='git remote set-uri'  # git remote set-uri [shortname] [url] e.g.) ssh://github.com/xxx/yyy.git
+alias ginf='git remote show origin'
 alias gmg='git merge'
 alias gmgs='git merge --squash'
 alias greb='git rebase'
