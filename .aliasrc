@@ -187,7 +187,7 @@ alias sup='svn update'
 # alias sci='svn commit'  # carefully
 alias sinf='svn info'
 function sdif {
-    svn diff $1 | lv
+    svn diff --patch-compatible $1 | lv
 }
 function sdifn {
     svn diff --summarize $1 | lv
