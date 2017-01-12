@@ -85,6 +85,13 @@ alias nt='netstat -plutan'
 alias vncs='vncserver :2 -geometry 1024x768 -depth 24'
 alias vnce='killall Xvnc4'
 
+## anaconda
+anaconda_ver="3-4.2.0"
+alias activate='source ${PYENV_ROOT}/versions/anaconda${anaconda_ver}/bin/activate'
+alias deactivate='source ${PYENV_ROOT}/versions/anaconda${anaconda_ver}/bin/deactivate'
+alias condal='conda list'
+alias condae='conda info -e'
+
 ## git
 alias ghelp='git help'
 alias gclo='git clone'
