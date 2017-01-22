@@ -131,7 +131,7 @@ export GOPATH=${HOME}
 export PYENV_ROOT=${HOME}/.pyenv
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cask/bin:${HOME}/.cabal/bin:${HOME}/local/go/bin:${PYENV_ROOT}/bin
+LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cask/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${PYENV_ROOT}/bin
 
 ### PATH ###
 export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
