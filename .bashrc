@@ -79,7 +79,7 @@ function parse_git_tag () {
 }
 
 function if_modified () {
-  unsgr; git status -uall 2> /dev/null | grep -E "(modified|Untracked)" > /dev/null 2>&1
+  unsgr; git status -uall 2> /dev/null | grep -E "modified" > /dev/null 2>&1
 }
 
 function if_stashed {
