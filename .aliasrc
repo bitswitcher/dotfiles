@@ -25,7 +25,7 @@ alias s='source ${HOME}/.bashrc'
 alias p='pwd'
 ag_defopt="ag --hidden --skip-vcs-ignores -p ${HOME}/.agignore"
 alias ag='${ag_defopt}'
-pt_defopt="pt -e --noglobal-gitignore --vcs-ignore=${HOME}/.agignore"
+pt_defopt="pt --hidden --color-line-number=0;36 --color-match=30;43 -e"
 alias pt='${pt_defopt}'
 alias zg='zgrep'
 alias d='date'
