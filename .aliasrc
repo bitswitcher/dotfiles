@@ -106,6 +106,7 @@ alias gadu='git add -u' # [useful] add modified files only, new (or not track) f
 alias gadf='git add -f'
 alias grst='git reset'
 alias gci='git commit'
+alias gciini='git commit --allow-empty -m "first commit"'
 alias gcim='git commit -m'
 alias gcima='git commit --author="bitswitcher <koichi.red@gmail.com>" -m'
 alias gcia='git commit --amend'
