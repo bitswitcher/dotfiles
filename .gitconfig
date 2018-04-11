@@ -34,7 +34,7 @@
 	untracked = white
 	branch = red
 [push]
-	default = tracking
+	default = simple
 [alias]
 	co = checkout
 	st = status
