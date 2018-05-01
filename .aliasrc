@@ -115,6 +115,7 @@ alias gcp='git cherry-pick'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbd='git branch -d'
+alias gbdr='git branch -d -r'       # git branch -d -r [remote branch]  e.g.) gbdr origin/foo
 alias gbm='git branch -m'
 alias gsbr='git show-branch'
 alias gremv='git remote -v'
