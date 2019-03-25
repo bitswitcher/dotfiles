@@ -169,6 +169,7 @@ alias gshow='git show'
 alias grlog='git reflog'
 alias gwh='git whatchanged'
 alias gblm='git blame'
+alias gcat='git cat-file -p'
 alias gtag='git tag -n'
 alias gfet='git fetch -v'  # git fet origin
 alias gsts='git stash'
