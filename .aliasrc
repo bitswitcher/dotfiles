@@ -44,6 +44,9 @@ function tp {
 function td {
     tree -d $1 | less
 }
+function mdview {
+    pandoc $1 | lynx --stdin
+}
 alias cp='cp -a'
 alias rm='rm -f'
 alias as='alias'
