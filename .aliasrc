@@ -98,7 +98,7 @@ alias condae='conda info -e'
 ## git
 alias ghelp='git help'
 alias gclo='git clone'
-alias gpul='git pull -v'            # git fet origin -> git merge  origin/[branch]
+alias gpul='git pull --prune -v'    # git fet origin -> git merge  origin/[branch]
 alias gpulr='git pull -v --rebase'  # git fet origin -> git rebase origin/[branch]
 alias gpulm='git pull origin master'
 #alias gpus='git push origin master'
@@ -174,7 +174,7 @@ alias gwh='git whatchanged'
 alias gblm='git blame'
 alias gcat='git cat-file -p'
 alias gtag='git tag -n'
-alias gfet='git fetch -v'  # git fet origin
+alias gfet='git fetch --prune -v'  # git fet origin
 alias gsts='git stash'
 alias gstp='git stash pop'
 alias gstpi='git stash pop --index'
