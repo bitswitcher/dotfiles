@@ -98,7 +98,7 @@ alias condae='conda info -e'
 ## git
 alias ghelp='git help'
 alias gclo='git clone'
-alias gpul='git pull --prune -v'    # git fet origin -> git merge  origin/[branch]
+alias gpul='git pull --prune -v'    b# git fet origin -> git merge  origin/[branch]
 alias gpulr='git pull -v --rebase'  # git fet origin -> git rebase origin/[branch]
 alias gpulm='git pull origin master'
 #alias gpus='git push origin master'
@@ -149,15 +149,15 @@ alias gdifh='git diff HEAD'
 alias gdifhn='git diff HEAD --name-only'
 alias gpc='git apply -v --whitespace=nowarn'
 alias gpcd='git apply -v --check'
-glog_defopt="--date=iso --decorate=full"
-alias glog='git log ${glog_defopt}'
-alias glogs='git log --stat ${glog_defopt}'
-alias glogn='git log --name-only ${glog_defopt}'
-alias glogone='git log ${glog_defopt} --oneline'
-#alias glogg='git log --graph ${glog_defopt}'
+glog_defopt1='--date=iso --abbrev-commit --format=medium'
+glog_defopt2='--date=iso --abbrev-commit --format=full'
+alias glog='git log ${glog_defopt1}'
+alias glogone='git log --date=iso --pretty="format:%C(auto)%h%Creset %ad%  %<(12,trunc)%Cgreen%an%Creset %s %C(auto)%d%Creset"'
+alias glogn='git log --name-only ${glog_defopt1}'
+alias glogs='git log --stat ${glog_defopt2}'
 #alias glogg='git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=iso'
-alias glogg='git log --decorate --graph --pretty=format:"%C(auto)%ad%C(auto) %h %Cgreen%an%Creset: %s %C(yellow)%d%Creset" --all --date=iso'
-alias glogp='git log -p --date=iso'
+alias glogg='git log --date=iso --decorate --graph --pretty=format:"%C(auto)%h%Creset %ad %<(12,trunc)%Cgreen%an%Creset %s %C(auto)%d%Creset"'
+alias glogp='git log -p ${glog_defopt2}'
 alias glogown='git log --date=iso --author=bitswitcher'
 ## other usefull log options
 # --grep=xxx       : search word from commit message
