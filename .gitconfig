@@ -41,4 +41,4 @@
 	br = branch -a
 	ci = commit
 [ghq]
-	root = ~/src
+	root = ~/prj
