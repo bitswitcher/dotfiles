@@ -125,12 +125,18 @@ export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $
 #export PS1="\u@\W $ "
 #export PS1="\h@\u $ "
 
-export GOROOT=${HOME}/local/go
-export GOPATH=${HOME}
+if [ -x "`which go`" ]; then
+  export GOROOT=${HOME}/local/go
+  export GOPATH=${HOME}
+fi
 
-export PYENV_ROOT=${HOME}/.pyenv
+if [ -x "`which python`" ]; then
+  export PYENV_ROOT=${HOME}/.pyenv
+fi
 
-export RUST_PATH=${HOME}/.cargo
+if [ -x "`which rustc`" ]; then
+  export RUST_PATH=${HOME}/.cargo
+fi
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cask/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${PYENV_ROOT}/bin:${RUST_PATH}/bin
@@ -143,7 +149,10 @@ export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/inf
 export PERL_BADLANG=0
 # export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
 
-eval "$(pyenv init -)"
+if [ -x "`which python`" ]; then
+  eval "$(pyenv init -)"
+fi
+
 # eval `dircolors ~/.dir_colors -b`
 
 ## override function (predefined /etc/bash_completion)
