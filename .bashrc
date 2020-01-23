@@ -149,7 +149,7 @@ export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/inf
 export PERL_BADLANG=0
 # export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
 
-if [ -x "`which python`" ]; then
+if [ -x "`which pyenv`" ]; then
   eval "$(pyenv init -)"
 fi
 
