@@ -130,8 +130,9 @@ if [ -x "`which go`" ]; then
   export GOPATH=${HOME}
 fi
 
-if [ -x "`which python`" ]; then
+if [ -x "`which pyenv`" ]; then
   export PYENV_ROOT=${HOME}/.pyenv
+  eval "$(pyenv init -)"
 fi
 
 if [ -x "`which rustc`" ]; then
@@ -139,7 +140,7 @@ if [ -x "`which rustc`" ]; then
 fi
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cask/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${PYENV_ROOT}/bin:${RUST_PATH}/bin
+LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${PYENV_ROOT}/bin:${RUST_PATH}/bin
 
 ### PATH ###
 export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
@@ -148,10 +149,6 @@ export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/inf
 
 export PERL_BADLANG=0
 # export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
-
-if [ -x "`which pyenv`" ]; then
-  eval "$(pyenv init -)"
-fi
 
 # eval `dircolors ~/.dir_colors -b`
 
