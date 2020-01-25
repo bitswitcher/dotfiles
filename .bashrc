@@ -126,7 +126,7 @@ export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $
 #export PS1="\h@\u $ "
 
 if [ -x "`which go`" ]; then
-  export GOROOT=${HOME}/local/go
+#  export GOROOT=${HOME}/local/go
   export GOPATH=${HOME}
 fi
 
