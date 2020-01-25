@@ -130,8 +130,8 @@ if [ -x "`which go`" ]; then
   export GOPATH=${HOME}
 fi
 
-if [ -d ${HOME}/.pyenv ]; then
-  export PYENV_ROOT=${HOME}/.pyenv
+if [ -d ${HOME}/.anyenv ]; then
+  export ANYENV_ROOT=${HOME}/.anyenv
 fi
 
 if [ -d ${HOME}/.cargo ]; then
@@ -139,7 +139,7 @@ if [ -d ${HOME}/.cargo ]; then
 fi
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${PYENV_ROOT}/bin:${RUST_PATH}/bin
+LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin
 
 ### PATH ###
 export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
@@ -149,11 +149,13 @@ export INFOPATH=${HOME}/local/info:${HOME}/local/share/info:/usr/local/share/inf
 export PERL_BADLANG=0
 # export PERL5DB='BEGIN {require "/home/tani/local/bin/myperl5db.pl"}'
 
-if [ -d ${HOME}/.pyenv ]; then
-  eval "$(pyenv init -)"
+if [ -d ${HOME}/.anyenv ]; then
+  eval "$(anyenv init -)"
 fi
 
-# eval `dircolors ~/.dir_colors -b`
+if [ -x "`which dircolors`" ]; then
+  eval `dircolors ~/.dir_colors -b`
+fi
 
 ## override function (predefined /etc/bash_completion)
 ## this define for Ubuntu only
