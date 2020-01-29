@@ -35,6 +35,10 @@
 	branch = red
 [push]
 	default = simple
+[pull]
+	ff = only
+[merge]
+	ff = false
 [alias]
 	co = checkout
 	st = status
