@@ -9,20 +9,17 @@ CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
 ESCOFF="\[\033[0m\]"
 
-# include local alias file
 if [ -f ${HOME}/.aliasrc ]; then
     . ${HOME}/.aliasrc
-fi
-
-if [ -f ${HOME}/.devrc ]; then
-    . ${HOME}/.devrc
 fi
 
 if [ -f ${HOME}/.bashrc2 ]; then
     . ${HOME}/.bashrc2
 fi
 
-GITHUB_DIR=${HOME}/src/github.com
+PRJ_DIR=${HOME}/prj
+GITHUB_DIR=${PRJ_DIR}/github.com
+YOCTO_DIR=${PRJ_DIR}/git.yoctoproject.org
 
 if [ -f ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh ]; then
     . ${GITHUB_DIR}/oh-my-zsh/plugins/gitfast/git-prompt.sh
@@ -125,6 +122,10 @@ export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $
 #export PS1="\u@\W $ "
 #export PS1="\h@\u $ "
 
+if [ -d ${YOCTO_DIR} ]; then
+  POKY_PATH=${YOCTO_DIR}/poky/bitbake
+fi
+
 if [ -x "`which go`" ]; then
 #  export GOROOT=${HOME}/local/go
   export GOPATH=${HOME}
@@ -139,7 +140,7 @@ if [ -d ${HOME}/.cargo ]; then
 fi
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin
+LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin:${POKY_PATH}/bin
 
 ### PATH ###
 export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
@@ -155,6 +156,11 @@ fi
 
 if [ -x "`which dircolors`" ]; then
   eval `dircolors ~/.dir_colors -b`
+fi
+
+# override local setting
+if [ -f ${HOME}/.devrc ]; then
+    . ${HOME}/.devrc
 fi
 
 ## override function (predefined /etc/bash_completion)
