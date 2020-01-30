@@ -139,6 +139,11 @@ if [ -d ${HOME}/.cargo ]; then
   export RUST_PATH=${HOME}/.cargo
 fi
 
+# override local setting
+if [ -f ${HOME}/.devrc ]; then
+    . ${HOME}/.devrc
+fi
+
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
 LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin:${POKY_PATH}/bin
 
@@ -156,11 +161,6 @@ fi
 
 if [ -x "`which dircolors`" ]; then
   eval `dircolors ~/.dir_colors -b`
-fi
-
-# override local setting
-if [ -f ${HOME}/.devrc ]; then
-    . ${HOME}/.devrc
 fi
 
 ## override function (predefined /etc/bash_completion)
