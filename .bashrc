@@ -50,7 +50,7 @@ export LESS=frMj20x4
 # export JLESSCHARSET=japanese-euc
 export LESSCHARSET=utf-8 less
 
-export LV="-c +i -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
+export LV="-d -c +i -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 
 export PAGER=less
 export MANPAGER=lv
