@@ -163,6 +163,8 @@ if [ -x "`which dircolors`" ]; then
   eval `dircolors ~/.dir_colors -b`
 fi
 
+umask 022
+
 ## override function (predefined /etc/bash_completion)
 ## this define for Ubuntu only
 # _expand() {
