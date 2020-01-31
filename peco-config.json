@@ -4,6 +4,9 @@
     "C-n": "peco.SelectDown",
     "C-p": "peco.SelectUp",
     "C-v": "peco.ScrollPageDown",
-    "C-q": "peco.ScrollPageUp"
+    "C-q": "peco.ScrollPageUp",
+    "C-a": "peco.BeginningOfLine",
+    "C-e": "peco.EndOfLine",
+    "C-r": "peco.RotateFilter"
   }
 }
