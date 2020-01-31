@@ -30,6 +30,12 @@
 
 # SVN
 .svn/
+.svnignore
+
+# Git
+.git/
+.gitignore
+.repo/
 
 # Ignore tags created by etags, ctags and gtags
 TAGS
