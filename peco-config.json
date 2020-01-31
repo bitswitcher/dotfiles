@@ -1,0 +1,9 @@
+{
+  "InitialFilter": "SmartCase",
+  "keymap": {
+    "C-n": "peco.SelectDown",
+    "C-p": "peco.SelectUp",
+    "C-v": "peco.ScrollPageDown",
+    "C-q": "peco.ScrollPageUp"
+  }
+}
