@@ -145,7 +145,7 @@ if [ -f ${HOME}/.devrc ]; then
 fi
 
 SYS_PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOROOT}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin:${POKY_PATH}/bin
+LOCAL_PATH=${HOME}/bin:${HOME}/local/bin:${HOME}/.cabal/bin:${GOPATH}/bin:${ANYENV_ROOT}/bin:${RUST_PATH}/bin:${POKY_PATH}/bin
 
 ### PATH ###
 export PATH=${LOCAL_PATH}:${DEV_PATH}:${SYS_PATH}
