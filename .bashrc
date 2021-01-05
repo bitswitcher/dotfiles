@@ -1,13 +1,29 @@
-# color setting
-BLACK="\[\033[0;30m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-YELLOW="\[\033[0;33m\]"
-BLUE="\[\033[0;34m\]"
-MAGENTA="\[\033[0;35m\]"
-CYAN="\[\033[0;36m\]"
-WHITE="\[\033[0;37m\]"
-ESCOFF="\[\033[0m\]"
+# color setting (PS)
+PS_BLACK="\[\033[0;30m\]"
+PS_RED="\[\033[0;31m\]"
+PS_GREEN="\[\033[0;32m\]"
+PS_YELLOW="\[\033[0;33m\]"
+PS_BLUE="\[\033[0;34m\]"
+PS_MAGENTA="\[\033[0;35m\]"
+PS_CYAN="\[\033[0;36m\]"
+PS_WHITE="\[\033[0;37m\]"
+PS_ESCOFF="\[\033[0m\]"
+
+# color setting (other)
+C_RESET=$'\e[0m'
+C_RED=$'\e[31m'
+C_GREEN=$'\e[32m'
+C_YELLOW=$'\e[33m'
+C_BLUE=$'\e[34m'
+C_MAGENTA=$'\e[35m'
+C_CYAN=$'\e[36m'
+C_IRED=$'\e[1;37;41m'
+C_IGREEN=$'\e[1;30;42m'
+C_IYELLOW=$'\e[1;30;43m'
+C_IBLUE=$'\e[1;37;44m'
+C_IMAGENTA=$'\e[1;37;45m'
+C_ICYAN=$'\e[1;30;46m'
+C_IWHITE=$'\e[1;30;47m'
 
 if [ -f ${HOME}/.aliasrc ]; then
     . ${HOME}/.aliasrc
@@ -54,6 +70,16 @@ export LV="-d -c +i -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 
 export PAGER=less
 export MANPAGER=lv
+
+if [ "`pgrep tmux`" ]; then
+  if [ ! "${TMUX}" ]; then
+    echo "tmux is running. ${C_GREEN}tma [1..n]${C_RESET} to attach."
+    echo "---"
+    tmux ls
+  fi
+else
+  echo "tmux is not running."
+fi
 
 # export CVSROOT=/home/xxx/cvs
 
@@ -118,7 +144,7 @@ function parse_git_branch_or_tag() {
   echo $OUT
 }
 
-export PROMPT_COMMAND='PS1="\u@\W${MAGENTA}$(parse_git_branch_or_tag)${ESCOFF} $ "'
+export PROMPT_COMMAND='PS1="\u@\W${PS_MAGENTA}$(parse_git_branch_or_tag)${PS_ESCOFF} $ "'
 #export PS1="\u@\W $ "
 #export PS1="\h@\u $ "
 
